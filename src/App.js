@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState} from "react";
+import { Chart } from "react-google-charts";
 
-function App() {
+export const data = [
+  ["Язык", "Число говорящих"],
+  ["Китайский", 1311000],
+  ["Испанский", 460000],
+  ["Английский", 379000],
+  ["Хинди", 341000],
+  ["Арабский", 319000],
+  ["Бенгальский", 228000],
+  ["Португальский", 221000],
+  ["Русский", 154000],
+  ["Японский", 128000],
+  ["Лахнда", 119000],
+];
+
+export const options = {
+  title: "Топ-10 языков по числу носителей",
+};
+
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Chart
+      chartType="PieChart"
+      data={data}
+      options={options}
+      width={"100%"}
+      height={"800px"}
+    />
   );
 }
 
